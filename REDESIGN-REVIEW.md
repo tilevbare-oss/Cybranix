@@ -1,32 +1,51 @@
-# CYBRANIX redesign — review draft
+# CYBRANIX redesign — awaiting approval
 
-Branch: `redesign/founder-led-consulting` (local only).
-Original base: `487ef327fe90671085b638b6417d7e7d518779a2`.
+The site is rebuilt around founder-led technology consulting for organizations across sizes and sectors. The design keeps the established navy, teal, amber, and CYBRANIX LLC identity.
 
-## Positioning and content
+## Preview
 
-- Founder-led practical IT consulting is the primary offer.
-- Four focus areas: assessments and roadmaps; project and vendor management; documentation and process improvement; technology training and adoption.
-- Small Business IT Review: owner interview, agreed inventory including recurring costs, operational gaps, prioritized recommendations, a 90-day roadmap, and findings walkthrough. Scope, timing and fee are agreed before starting.
-- Ongoing advisory is a defined follow-on engagement.
-- Existing government hardware/software sourcing content is on `government.html`.
-- No clients, testimonials, certifications, partnerships, team members, metrics, or specialist engineering services are invented.
-- Founder background uses the supplied briefing. Exact credentials and founder name were not provided and are omitted.
+![Desktop homepage](docs/previews/home-desktop.png)
 
-## Design and implementation
+[Full homepage](docs/previews/home-full.png) · [Mobile homepage](docs/previews/home-mobile.png)
 
-Navy, teal, and amber branding retained. Editorial typography, structured service descriptions, and a text-based roadmap replace the image-heavy hero. Original image retained in assets, but not downloaded by either page. Buildless HTML/CSS remains compatible with GitHub Pages; no dependencies, external fonts, tracking, or JavaScript are required for the website.
+## Site map
 
-Accessible landmarks, skip links, focus outlines, reduced-motion support, touch-target styling, mobile layouts, canonical URLs, social metadata, favicon, robots.txt, and sitemap added. Phone link corrected to match the existing displayed number.
+- Home
+- Services hub and six service pages: IT Strategy & Advisory; IT Project & Vendor Management; Cloud Planning & Provider Coordination; IT Operations & Process Improvement; Governance Documentation & Readiness Coordination; Technology Training & Enablement
+- Industries hub and eight sector pages: Government & Public Sector; Healthcare & Life Sciences; Financial Services & Fintech; Consumer Goods & Retail; Manufacturing & Distribution; Professional Services; Education & Nonprofits; Other Sectors & Organizations
+- Business IT Review: fixed-scope operational review and prioritized 90-day roadmap
+- About: Theo Ilevbare and founder-led approach
+- Contact: introductory-call request by email, with working telephone link
+- Earlier `government.html` URL retained as a gateway to the government industry page
 
-## Verification
+Sector pages explain potential service applications. They do not claim clients, partnerships, experience, certifications, or regulatory expertise in each sector. Unverified performance figures and credentials from the supplied guide are omitted. Managed monitoring, 24/7 support, advanced engineering, coding, security audits, and compliance certification are not advertised.
 
-Passed: local links and fragment targets; one main and h1 per page; unique IDs; phone link targets; primary text/button color contrast; unchanged CNAME and workflow files.
+## Maintain and preview
 
-Desktop/mobile browser rendering is unverified: this managed environment exposes no browser QA tool. Responsive rules cover narrow phones through desktop. The inline preview displays the same HTML/CSS with local page switching; preview header positioning is static to suit the conversation.
+Static HTML and CSS need no build service or dependencies to run. Edit `tools/build_site.py` for page content and shared navigation, then run:
 
-## Review before release
+```sh
+python3 tools/build_site.py
+python3 tools/check_site.py
+python3 -m http.server 3000
+```
 
-The introductory-call action requests a time by email. Supply a booking URL if a scheduling service is preferred. No pricing or completion-time claims are made. Confirm founder background and service scope before release.
+Open the server URL on the same computer. Generated pages use relative links and directory index files for GitHub Pages and project-subpath compatibility. Keep generated pages committed. Edit `styles.css` for design changes. Original hero asset is preserved but unused to reduce page loading weight.
 
-No push, merge, publishing, DNS edits, Pages settings changes, or custom-domain changes were performed. Main and CNAME are preserved. After approval, inspect authenticated Pages settings and ensure the deployment source remains main before pushing or merging any release.
+## Validation
+
+- 21 pages: local links, fragment targets, unique IDs, language, metadata, one main landmark and h1, contact links, and content constraints pass.
+- 84 browser page/viewport checks at 320, 375, 768, and 1440 pixels: no horizontal overflow or HTTP errors.
+- Browser navigation through service pages and introductory-call action passes. Keyboard skip-link focus passes.
+- Desktop homepage screenshot visually inspected; mobile and full-page captures included for review. These checks are not a full accessibility audit.
+- `git diff --check` passes.
+- CNAME byte-for-byte unchanged; existing GitHub workflow files unchanged.
+- Authenticated Pages settings verified: legacy build from `main`, root path `/`, HTTPS enforced, custom domain `cybranixsystems.com`.
+
+## Release status
+
+Development branch only. No merge, deployment, DNS edit, or Pages setting change is authorized by this review draft.
+
+The booking action opens an email request; it does not automatically reserve a meeting. No booking service URL has been supplied. Pricing, engagement timing, and scope are agreed directly.
+
+Review the screenshots and copy before approving a merge to `main`. A merge may trigger the existing GitHub Pages production deployment.
